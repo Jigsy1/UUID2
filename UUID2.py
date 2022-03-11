@@ -11,13 +11,10 @@ uuid2.title("UUID2")
 uuid2.resizable(height=False, width=False)
 
 def genUUID2():
-  len = 0
   str = ""
   stdout = ""
-  while (len <= 32):
-    str = str + random.choice(string.ascii_uppercase + string.digits)
-    len += 1
-  stdout = str[0:8] + "-" + str[8:12] + "-" + str[12:16] + "-" + str[16:20] + "-" + str[21:]
+  str = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(33))
+  stdout = "{}-{}-{}-{}-{}".format(str[0:8], str[8:12], str[12:16], str[16:20], str[21:])
   if braces.get() == 1:
     stdout = "{" + stdout + "}"
   print(stdout)
