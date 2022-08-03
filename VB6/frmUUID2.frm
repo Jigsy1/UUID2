@@ -26,7 +26,7 @@ Begin VB.Form frmUUID2
       Caption         =   "&Close"
       Height          =   375
       Left            =   6000
-      TabIndex        =   5
+      TabIndex        =   6
       Top             =   1080
       Width           =   1215
    End
@@ -34,7 +34,7 @@ Begin VB.Form frmUUID2
       Caption         =   "C&opy"
       Height          =   375
       Left            =   3360
-      TabIndex        =   3
+      TabIndex        =   4
       Top             =   1080
       Width           =   1215
    End
@@ -42,26 +42,27 @@ Begin VB.Form frmUUID2
       Caption         =   "&Generate"
       Height          =   375
       Left            =   2040
-      TabIndex        =   2
+      TabIndex        =   3
       Top             =   1080
       Width           =   1215
    End
    Begin VB.Frame fmeSettings 
       Height          =   1335
       Left            =   120
-      TabIndex        =   6
+      TabIndex        =   7
       Top             =   120
       Width           =   1815
       Begin VB.CheckBox chkAutomatic 
          Caption         =   "Automatic (10s)"
          Height          =   375
          Left            =   120
-         TabIndex        =   8
+         TabIndex        =   2
+         ToolTipText     =   "Automatically generate a new UUID2"
          Top             =   840
          Width           =   1575
       End
       Begin VB.CheckBox chkBrackets 
-         Caption         =   "{Brackets}"
+         Caption         =   "Use {Braces}"
          Height          =   375
          Left            =   120
          TabIndex        =   1
@@ -70,7 +71,7 @@ Begin VB.Form frmUUID2
          Width           =   1575
       End
       Begin VB.CheckBox chkUpper 
-         Caption         =   "Uppercase letters"
+         Caption         =   "Use Uppercase"
          Height          =   375
          Left            =   120
          TabIndex        =   0
@@ -82,7 +83,7 @@ Begin VB.Form frmUUID2
    Begin VB.Frame fmeStyle 
       Height          =   735
       Left            =   2040
-      TabIndex        =   7
+      TabIndex        =   8
       Top             =   120
       Width           =   5175
       Begin VB.TextBox txtUUID2 
@@ -90,7 +91,7 @@ Begin VB.Form frmUUID2
          Height          =   375
          Left            =   120
          Locked          =   -1  'True
-         TabIndex        =   4
+         TabIndex        =   5
          Top             =   240
          Width           =   4935
       End
