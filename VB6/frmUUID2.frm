@@ -5,85 +5,92 @@ Begin VB.Form frmUUID2
    ClientHeight    =   1560
    ClientLeft      =   45
    ClientTop       =   330
-   ClientWidth     =   7365
+   ClientWidth     =   8160
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    ScaleHeight     =   1560
-   ScaleWidth      =   7365
+   ScaleWidth      =   8160
    StartUpPosition =   2  'CenterScreen
    Begin VB.Timer tmrAutomatic 
       Enabled         =   0   'False
       Interval        =   10000
-      Left            =   5160
+      Left            =   6000
       Top             =   1080
    End
    Begin VB.Timer tmrNoteClear 
       Interval        =   2000
-      Left            =   4680
+      Left            =   5520
       Top             =   1080
    End
    Begin VB.CommandButton cmdClose 
       Caption         =   "&Close"
       Height          =   375
-      Left            =   6000
-      TabIndex        =   6
+      Left            =   6840
+      TabIndex        =   7
       Top             =   1080
       Width           =   1215
    End
    Begin VB.CommandButton cmdCopy 
       Caption         =   "C&opy"
       Height          =   375
-      Left            =   3360
-      TabIndex        =   4
+      Left            =   4200
+      TabIndex        =   5
       Top             =   1080
       Width           =   1215
    End
    Begin VB.CommandButton cmdGenerate 
       Caption         =   "&Generate"
       Height          =   375
-      Left            =   2040
-      TabIndex        =   3
+      Left            =   2880
+      TabIndex        =   4
       Top             =   1080
       Width           =   1215
    End
    Begin VB.Frame fmeSettings 
       Height          =   1335
       Left            =   120
-      TabIndex        =   7
+      TabIndex        =   8
       Top             =   120
-      Width           =   1815
+      Width           =   2655
+      Begin VB.CheckBox chkRandomness 
+         Caption         =   "Increase randomness"
+         Height          =   195
+         Left            =   120
+         TabIndex        =   3
+         Top             =   960
+         Width           =   2295
+      End
       Begin VB.CheckBox chkAutomatic 
-         Caption         =   "Automatic (10s)"
-         Height          =   375
+         Caption         =   "Automatically generate (10s)"
+         Height          =   195
          Left            =   120
          TabIndex        =   2
-         ToolTipText     =   "Automatically generate a new UUID2"
-         Top             =   840
-         Width           =   1575
+         Top             =   720
+         Width           =   2415
       End
       Begin VB.CheckBox chkBrackets 
          Caption         =   "Use {Braces}"
-         Height          =   375
+         Height          =   195
          Left            =   120
          TabIndex        =   1
          Top             =   480
          Value           =   1  'Checked
-         Width           =   1575
+         Width           =   2295
       End
       Begin VB.CheckBox chkUpper 
          Caption         =   "Use Uppercase"
-         Height          =   375
+         Height          =   195
          Left            =   120
          TabIndex        =   0
-         Top             =   120
+         Top             =   240
          Value           =   1  'Checked
-         Width           =   1575
+         Width           =   2295
       End
    End
    Begin VB.Frame fmeStyle 
       Height          =   735
-      Left            =   2040
-      TabIndex        =   8
+      Left            =   2880
+      TabIndex        =   9
       Top             =   120
       Width           =   5175
       Begin VB.TextBox txtUUID2 
@@ -91,7 +98,7 @@ Begin VB.Form frmUUID2
          Height          =   375
          Left            =   120
          Locked          =   -1  'True
-         TabIndex        =   5
+         TabIndex        =   6
          Top             =   240
          Width           =   4935
       End
@@ -126,7 +133,6 @@ Private Sub cmdGenerate_Click()
 End Sub
 
 Private Function makeUUID2() As String
-  Randomize
   Dim baseString As String
   If chkUpper.Value = 1 Then
     baseString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -134,9 +140,19 @@ Private Function makeUUID2() As String
     baseString = "abcdefghijklmnopqrstuvwxyz"
   End If
   baseString = baseString & "0123456789"
-  Dim loopNumber As Integer, outString As String
+  Randomize
+  Dim loopNumber As Integer, outString As String, randNumber As Integer
   For loopNumber = 0 To 32 - 1
-    outString = outString & Mid(baseString, Int(Val(1 + Val(Rnd * Len(baseString)))), 1)
+    If chkRandomness.Value = 1 Then
+      randNumber = Int(Val(1 + Val(Rnd * 2)))
+      If randNumber = 1 Then
+        outString = outString & Mid(baseString, Int(Val(1 + Val(Rnd * Len(baseString)))), 1)
+      Else
+        outString = outString & Mid(StrReverse(baseString), Int(Val(1 + Val(Rnd * Len(StrReverse(baseString))))), 1)
+      End If
+    Else
+      outString = outString & Mid(baseString, Int(Val(1 + Val(Rnd * Len(baseString)))), 1)
+    End If
     If loopNumber = 7 Or loopNumber = 11 Or loopNumber = 15 Or loopNumber = 19 Then
       outString = outString & "-"
     End If
