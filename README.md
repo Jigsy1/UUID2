@@ -13,4 +13,4 @@ A simple GUI in Python 3✲ which generates an alpha numeric "UUID" and outputs 
 
 Simple dialog which allows for a little more in terms of options such as using lowercase letters, braces, and automatic generation every 10s.
 
-![UUIDv2](https://user-images.githubusercontent.com/34282672/182722897-896208f5-e439-44a7-9b29-09babc0df67a.png)
+![uuid2](https://user-images.githubusercontent.com/34282672/184308382-03a8506b-7faa-4e87-b3d4-d4a879080c76.png)
