@@ -144,12 +144,25 @@ Private Function makeUUID2() As String
   Dim loopNumber As Integer, outString As String, randNumber As Integer
   For loopNumber = 0 To 32 - 1
     If chkRandomness.Value = 1 Then
-      randNumber = Int(Val(1 + Val(Rnd * 2)))
-      If randNumber = 1 Then
-        outString = outString & Mid(baseString, Int(Val(1 + Val(Rnd * Len(baseString)))), 1)
-      Else
-        outString = outString & Mid(StrReverse(baseString), Int(Val(1 + Val(Rnd * Len(StrReverse(baseString))))), 1)
-      End If
+      randNumber = Int(Val(1 + Val(Rnd * 6)))
+      Select Case randNumber
+        Case 1
+          outString = outString & Mid(baseString, Int(Val(1 + Val(Rnd * Len(baseString)))), 1)
+        Case 2
+            outString = outString & Mid(StrReverse(baseString), Int(Val(1 + Val(Rnd * Len(StrReverse(baseString))))), 1)
+        Case 3
+          ' ,-> Former half
+          outString = outString & Mid(Mid(baseString, 1, Val(Len(baseString) / 2)), Int(Val(1 + Val(Rnd * Len(Mid(baseString, 1, Val(Len(baseString) / 2)))))), 1)
+        Case 4
+          ' ,-> Latter half
+          outString = outString & Mid(Mid(baseString, Val(Len(baseString) / 2)), Int(Val(1 + Val(Rnd * Len(Mid(baseString, Val(Len(baseString) / 2)))))), 1)
+        Case 5
+          ' ,-> Former half (Reverse)
+          outString = outString & Mid(Mid(StrReverse(baseString), 1, Val(Len(StrReverse(baseString)) / 2)), Int(Val(1 + Val(Rnd * Len(Mid(StrReverse(baseString), 1, Val(Len(StrReverse(baseString)) / 2)))))), 1)
+        Case 6
+          ' ,-> Latter half (Reverse)
+          outString = outString & Mid(Mid(StrReverse(baseString), Val(Len(StrReverse(baseString)) / 2)), Int(Val(1 + Val(Rnd * Len(Mid(StrReverse(baseString), Val(Len(StrReverse(baseString)) / 2)))))), 1)
+      End Select
     Else
       outString = outString & Mid(baseString, Int(Val(1 + Val(Rnd * Len(baseString)))), 1)
     End If
