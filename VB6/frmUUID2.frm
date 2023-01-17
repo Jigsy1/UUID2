@@ -27,7 +27,7 @@ Begin VB.Form frmUUID2
       Caption         =   "&Close"
       Height          =   375
       Left            =   7680
-      TabIndex        =   7
+      TabIndex        =   8
       Top             =   1200
       Width           =   1335
    End
@@ -35,7 +35,7 @@ Begin VB.Form frmUUID2
       Caption         =   "C&opy"
       Height          =   375
       Left            =   5280
-      TabIndex        =   5
+      TabIndex        =   6
       Top             =   1200
       Width           =   1335
    End
@@ -43,21 +43,21 @@ Begin VB.Form frmUUID2
       Caption         =   "&Generate (F5)"
       Height          =   375
       Left            =   3840
-      TabIndex        =   4
+      TabIndex        =   5
       Top             =   1200
       Width           =   1335
    End
    Begin VB.Frame fmeSettings 
       Height          =   1575
       Left            =   120
-      TabIndex        =   8
+      TabIndex        =   9
       Top             =   0
       Width           =   3615
       Begin VB.CheckBox chkHyphens 
          Caption         =   "Include hyphens (...-...-...-...-...)"
          Height          =   195
          Left            =   120
-         TabIndex        =   10
+         TabIndex        =   2
          Top             =   720
          Value           =   1  'Checked
          Width           =   2775
@@ -66,7 +66,7 @@ Begin VB.Form frmUUID2
          Caption         =   "Make generation slightly more random"
          Height          =   195
          Left            =   120
-         TabIndex        =   3
+         TabIndex        =   4
          Top             =   1200
          Width           =   3135
       End
@@ -74,12 +74,12 @@ Begin VB.Form frmUUID2
          Caption         =   "Automatically generate new UUID2(s) (30s)"
          Height          =   195
          Left            =   120
-         TabIndex        =   2
+         TabIndex        =   3
          Top             =   960
          Width           =   3375
       End
       Begin VB.CheckBox chkBraces 
-         Caption         =   "Include {Braces}"
+         Caption         =   "Include {braces}"
          Height          =   195
          Left            =   120
          TabIndex        =   1
@@ -88,7 +88,7 @@ Begin VB.Form frmUUID2
          Width           =   2655
       End
       Begin VB.CheckBox chkUpper 
-         Caption         =   "Use Uppercase characters (A...Z)"
+         Caption         =   "Use uppercase characters (A...Z)"
          Height          =   195
          Left            =   120
          TabIndex        =   0
@@ -100,7 +100,7 @@ Begin VB.Form frmUUID2
    Begin VB.Frame fmeStyle 
       Height          =   735
       Left            =   3840
-      TabIndex        =   9
+      TabIndex        =   10
       Top             =   0
       Width           =   5175
       Begin VB.TextBox txtUUID2 
@@ -108,7 +108,7 @@ Begin VB.Form frmUUID2
          Height          =   375
          Left            =   120
          Locked          =   -1  'True
-         TabIndex        =   6
+         TabIndex        =   7
          Top             =   240
          Width           =   4935
       End
