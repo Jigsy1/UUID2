@@ -11,6 +11,6 @@ A simple GUI in Python 3✲ which generates an alpha numeric "UUID" and outputs 
 
 # Visual Basic 6 version:
 
-Simple dialog which allows for a little more in terms of options such as using lowercase letters, braces, and automatic generation every 10s.
+Simple dialog which allows for a little more in terms of options such as using lowercase letters, braces, and automatic generation every 30s.
 
-![uuid2v5](https://user-images.githubusercontent.com/34282672/212827349-082b1476-ea1e-4383-80d9-db972deffe95.png)
+![UUID105hf](https://user-images.githubusercontent.com/34282672/212992734-71a5f756-a045-4a80-9f68-765b2c29a4f8.png)
