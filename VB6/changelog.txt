@@ -1,3 +1,7 @@
+v1.0.0.5 (hotfix):
+--------------------
+1. Updated the tab ordering because I forgot to do it.
+
 v1.0.0.5:
 ----------
 1. Updated the labels to slightly match PassGen.
